@@ -51,7 +51,7 @@ trainer3 = Trainer.new("Trainer 3", [location1])
 client1.assign_trainer(trainer1)
 client2.assign_trainer(trainer2)
 client3.assign_trainer(trainer3)
-=end
+
 
 ###### Airbnb ######
 listing1 = Listing.new("Happyhome", "London")
@@ -69,7 +69,22 @@ trip3 = Trip.new(listing3, guest3)
 trip4 = Trip.new(listing1, guest2)
 trip5 = Trip.new(listing1, guest3)
 trip6 = Trip.new(listing2, guest3)
+=end
 
+
+###### Lyft ######
+passenger1 = Passenger.new("Angus")
+passenger2 = Passenger.new("Bianca")
+passenger3 = Passenger.new("Jack")
+
+driver1 = Driver.new("Paul")
+driver2 = Driver.new("Chris")
+driver3 = Driver.new("Trudy")
+
+ride1 = Ride.new(passenger1, driver1, 30.2)
+ride2 = Ride.new(passenger2, driver2, 15.0)
+ride3 = Ride.new(passenger3, driver1, 30.2)
+ride4 = Ride.new(passenger1, driver3, 5.0)
 
 
 binding.pry
