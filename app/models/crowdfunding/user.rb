@@ -44,9 +44,14 @@ class User
         @@all
     end
 
+    #Return an array of users who have made at least 1 pledge
+    def self.any_pledges()
+        self.all().select() { | user | user.highest_pledge() }
+    end
+
     #Return the user who made the highest pledge
     def self.highest_pledge()
-        self.all().max_by() { | user | highest_pledge().amount() }
+        self.any_pledges().max_by() { | user | user.highest_pledge().amount() }
     end
 
     #Return an array of users who have pledged to > 1 project
@@ -55,7 +60,7 @@ class User
     end
 
     #Return an array of all users who have created a project
-    def self.project_creator()
+    def self.project_creators()
         self.all().select() { | user | user.projects().length() > 0 }
     end
 

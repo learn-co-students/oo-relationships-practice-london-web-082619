@@ -85,7 +85,6 @@ ride1 = Ride.new(passenger1, driver1, 30.2)
 ride2 = Ride.new(passenger2, driver2, 15.0)
 ride3 = Ride.new(passenger3, driver1, 30.2)
 ride4 = Ride.new(passenger1, driver3, 5.0)
-=end
 
 
 ###### IMDB ######
@@ -112,6 +111,25 @@ thor = Character.new("Thor", actor4, [movie2])
 denniston = Character.new("Commander Denniston", actor1, [movie6])
 tywin = Character.new("Tywin Lannister", actor1, [], [show1])
 joker = Character.new("The Joker", actor6, [movie3])
+=end
+
+
+###### Crowdfunding ######
+user1 = User.new("user1")
+user2 = User.new("user2")
+user3 = User.new("user3")
+user4 = User.new("user4")
+user5 = User.new("user5")
+
+project1 = user1.start_project("project1", 50000)
+project2 = user2.start_project("project2", 20000)
+project3 = user1.start_project("project3", 10000)
+project4 = user3.start_project("project4", 10000)
+
+user3.back_project(project1, 100)
+user4.back_project(project1, 400)
+user3.back_project(project2, 500)
+user5.back_project(project3, 20000)
 
 
 binding.pry

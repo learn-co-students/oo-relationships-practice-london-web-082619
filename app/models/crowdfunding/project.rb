@@ -19,7 +19,9 @@ class Project
 
     #Returns the total amount pledged to the project
     def total_pledged()
-        self.pledges().reduce { | memo, pledge | memo + pledge.amount() }
+        pledge_amounts = self.pledges().map() { | pledge | pledge.amount() }
+        #Must reduce to 0 and not nil for .above_goal() to work
+        pledge_amounts.reduce(0) { | memo, amount | memo + amount }
     end
 
     #Tests whether the project has met or exceeded its goal
