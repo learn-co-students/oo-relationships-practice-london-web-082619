@@ -23,16 +23,17 @@ peanuts = Ingredient.new("Peanuts", 50, cookies)
 # puts chips.name == "Chips"
 =end
 
+=begin
 ###### Gyms ######
 client_names = ["Angus", "Bianca", "Trudy", "Chris", "Walkiria", "Paul"]
 trainer_names = ["Rocky", "Chuck Norris", "The Rock", "Thor", "The Mountain"]
 location_names = ["High Road", "Holborn", "Palmer's Green", "Chancery Lane", "Finsbury Pavement"]
 
-=begin
+
 10.times { Client.new(client_names.sample()) }
 10.times { Location.new(location_names.sample()) }
 10.times { Trainer.new(trainer_names.sample(), [Location.all().sample(), Location.all().sample(), Location.all().sample()]) }
-=end
+
 
 client1 = Client.new("Jeff")
 client2 = Client.new("Patrick")
@@ -50,6 +51,25 @@ trainer3 = Trainer.new("Trainer 3", [location1])
 client1.assign_trainer(trainer1)
 client2.assign_trainer(trainer2)
 client3.assign_trainer(trainer3)
+=end
+
+###### Airbnb ######
+listing1 = Listing.new("Happyhome", "London")
+listing2 = Listing.new("Big Lodge", "Yosemite")
+listing3 = Listing.new("Posh Tower", "New York")
+
+guest1 = Guest.new("Hamish")
+guest2 = Guest.new("Colin")
+guest3 = Guest.new("Safira")
+guest4 = Guest.new("Hamish")
+
+trip1 = Trip.new(listing1, guest1)
+trip2 = Trip.new(listing2, guest2)
+trip3 = Trip.new(listing3, guest3)
+trip4 = Trip.new(listing1, guest2)
+trip5 = Trip.new(listing1, guest3)
+trip6 = Trip.new(listing2, guest3)
+
 
 
 binding.pry
