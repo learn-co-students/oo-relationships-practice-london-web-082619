@@ -69,7 +69,7 @@ trip3 = Trip.new(listing3, guest3)
 trip4 = Trip.new(listing1, guest2)
 trip5 = Trip.new(listing1, guest3)
 trip6 = Trip.new(listing2, guest3)
-=end
+
 
 
 ###### Lyft ######
@@ -85,6 +85,33 @@ ride1 = Ride.new(passenger1, driver1, 30.2)
 ride2 = Ride.new(passenger2, driver2, 15.0)
 ride3 = Ride.new(passenger3, driver1, 30.2)
 ride4 = Ride.new(passenger1, driver3, 5.0)
+=end
+
+
+###### IMDB ######
+actor1 = Actor.new("Charles Dance")
+actor2 = Actor.new("Christian Bale")
+actor3 = Actor.new("Tilda Swinton")
+actor4 = Actor.new("Chris Hemsworth")
+actor5 = Actor.new("Viggo Mortensen")
+actor6 = Actor.new("Heath Ledger")
+
+movie1 = Movie.new("The Lord of the Rings")
+movie2 = Movie.new("Avengers Assemble")
+movie3 = Movie.new("The Dark Knight")
+movie4 = Movie.new("The Dark Knight Rises")
+movie5 = Movie.new("Batman Begins")
+movie6 = Movie.new("The Imitation Game")
+
+show1 = Show.new("Game of Thrones")
+show2 = Show.new("Avengers Assemble")
+
+batman = Character.new("Batman", actor2, [movie3, movie4, movie5])
+aragorn = Character.new("Aragorn", actor5, [movie1])
+thor = Character.new("Thor", actor4, [movie2])
+denniston = Character.new("Commander Denniston", actor1, [movie6])
+tywin = Character.new("Tywin Lannister", actor1, [], [show1])
+joker = Character.new("The Joker", actor6, [movie3])
 
 
 binding.pry
