@@ -19,21 +19,11 @@ class Ingredient
         self.dessert.bakery
     end
 
-    # def name
-    #     return @name
-    # end
-
-    # def dessert
-    #     return @dessert
-    # end
-
-    # def calorie_count
-    #     return @calorie_count
-    # end
-
-    # def is_yummy?
-    #     return yummy # won't work because local variable
-    # end
+    def self.find_all_by_name(ingredient)
+        @@all.select do |i|
+            i.name.include?(ingredient)
+        end
+    end
 
 end
 

@@ -14,21 +14,18 @@ class Bakery
     end
 
     def desserts
-        # should return an array 
-        # of desserts the bakery makes
-        Dessert.all.select do |dessert|
-            dessert.bakery == self
-        end
+        Dessert.all.select {|dessert| dessert.bakery == self}
     end
 
     def ingredients
         # should return an array of all ingredients this bakery uses
-        self.desserts.collect do |dessert|
-            dessert.ingredients 
-        end
+        self.desserts.collect {|dessert| dessert.ingredients}
         # Ingredient.all.select do |ingredient|
         #     ingredient.bakery == self
         # end
     end
 
+    def average_calories
+        desserts.sum {|dessert| dessert.calorie_count}.to_f / desserts.length
+    end
 end
