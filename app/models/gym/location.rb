@@ -11,14 +11,24 @@ class Location
         @@all << self
     end
 
-    #Return an array of all trainers at that location
+    #Create a new contract with a trainer
+    def sign_trainer(trainer)
+        Contract.new(trainer, self)
+    end
+
+    #Return an array of the location's contracts with trainers
+    def contracts()
+        Contract.all().select() { | contract | contract.location == self }
+    end
+    
+    #Return an array of all trainers the location has contracts with
     def trainers()
-        Trainer.all().select() { | trainer | trainer.locations().include?(self) }
+        self.contracts().map() { | contract | contract.trainer }
     end
 
     #Return an array of all clients at that location via their trainers
     def clients()
-        self.trainers().map { | trainer | trainer.clients() }.flatten()
+        self.trainers().map { | trainer | trainer.clients() }.flatten().uniq
     end
 
 

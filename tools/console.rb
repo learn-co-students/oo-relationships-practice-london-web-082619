@@ -4,34 +4,17 @@ def reload
   load 'config/environment.rb'
 end
 
-actor1 = Actor.new("actor1")
-actor2 = Actor.new("actor2")
-actor3 = Actor.new("actor3")
+trainer1 = Trainer.new("trainer1")
+trainer2 = Trainer.new("trainer2")
+trainer3 = Trainer.new("trainer3")
 
-movie1 = Movie.new("movie1")
-movie2 = Movie.new("movie2")
-movie3 = Movie.new("movie3")
+location1 = Location.new("location1")
+location2 = Location.new("location2")
+location3 = Location.new("location3")
 
-show1 = Show.new("show1")
-show2 = Show.new("show2")
-show3 = Show.new("show3")
-
-character1 = Character.new("character1")
-character2 = Character.new("character2")
-character3 = Character.new("character3")
-
-episode1 = Episode.new("episode1", show1)
-episode2 = Episode.new("episode2", show1)
-episode3 = Episode.new("episode3", show1)
-
-episode1.add_character(character1)
-movie1.add_character(character1)
-
-episode2.add_character(character2)
-
-
-movie4 = Movie.new("show1")
-movie5 = Movie.new("show2")
+client1 = Client.new("client1")
+client2 = Client.new("client2")
+client3 = Client.new("client3")
 
 binding.pry
 0

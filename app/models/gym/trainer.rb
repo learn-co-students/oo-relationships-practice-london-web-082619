@@ -7,28 +7,29 @@ class Trainer
     ###### Instance methods ######
 
     #Initialize a trainer with a name and an array of locations
-    def initialize(name, locations)
+    def initialize(name)
         @name = name
-        @locations = locations
 
         @@all << self
     end
 
-    #Remove the given location from the trainer's array of locations
-    def leave_location(location)
-        if self.locations.include?(location)
-            self.locations.delete(location)
-        else
-            "#{self.name} doesn't work from #{location.name}."
-        end
+    #Return an array of all the trainer's contracts with locations
+    def contracts()
+        Contract.all().select() { | contract | contract.trainer == self }
     end
 
-    #Add the given location to the trainer's array of locations
+
+    #Return an array of all the trainer's locations
+    def locations()
+        self.contracts().map() { | contract | contract.location }
+    end
+
+    #Create a contract with a new location
     def join_location(location)
-        if !self.locations.include?(location)
-            self.locations << location
+        if self.locations().include?(location)
+            return "#{self.name} already work from #{location.name}"
         else
-            "#{self.name} already works from #{location.name}."
+            Contract.new(self, location)
         end
     end
 
@@ -40,12 +41,12 @@ class Trainer
 
     ###### Class methods ######
     
-    #Return all trainers *
+    #Return all trainers
     def self.all()
         @@all
     end
 
-    #Return the trainer with the most clients *
+    #Return the trainer with the most clients
     def self.most_clients()
         self.all().max_by { | trainer | trainer.clients().length() }
     end
