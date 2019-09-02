@@ -13,6 +13,25 @@ location provided that they have a trainer.
   - a client has one trainer
   - how is a client related to a location?
 
+  location >- LocTra -< trainer
+  trainer -< client
+
+Location
+    - name
+
+LocTra
+    - Location
+    - Trainer
+
+Trainer
+    - Name
+
+Client
+    - Name
+    - Trainer
+
+
+
 Write out the relationships using has_many, belongs_to and has_many_through.
 Write out a schema that shows what these tables might look like in a database.
 Where would the foreign keys live? Then *build out methods reflecting all these
@@ -23,6 +42,7 @@ etc?
 
 - #assign_trainer
   - should take a trainer as argument and assign it to the client
+
 
 #### Location
 

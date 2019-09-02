@@ -113,5 +113,45 @@ cs33 = CharShow.new(s3, c2)
 cs333 = CharShow.new(s3, c3)
 cs3333 = CharShow.new(s3, c4)
 
+# #gym tests
+loc1 = Location.new("London")
+loc2 = Location.new("Margate")
+loc3 = Location.new("Seti Alpha 5")
+
+tra1 = Trainer.new("Chad")
+tra2 = Trainer.new("Max Payne")
+tra3 = Trainer.new("Thanos")
+
+lt1 = LocTran.new(loc1, tra1)
+lt2 = LocTran.new(loc2, tra2)
+lt3 = LocTran.new(loc3, tra3)
+
+cli1 = Client.new("Walter")
+cli2 = Client.new("Dennis")
+cli3 = Client.new("Mr Rogers")
+
+puts Location.all
+puts LocTran.all
+puts Trainer.all
+puts Client.all
+
+#crowdfunding tests
+
+u1 = User.new("Ben")
+u2 = User.new("Scott")
+u3 = User.new("Tom")
+
+proj1 = Project.new("CoolBusiness.com", u1, 5000)
+proj2 = Project.new("ShiteBusiness.com", u1, 25000)
+proj3 = Project.new("ReallyCoolBusiness.com", u2, 1000000)
+proj4 = Project.new("WickedAwesomeShop", u3, 1500)
+
+ple1 = Pledge.new(u3, proj1, 18000)
+ple2 = Pledge.new(u3, proj2, 20)
+ple3 = Pledge.new(u1, proj2, 1500)
+ple4 = Pledge.new(u2, proj3, 1500000)
+
+
+
 binding.pry
 0
