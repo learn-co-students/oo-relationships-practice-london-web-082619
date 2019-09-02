@@ -16,7 +16,7 @@ Where would the foreign keys live? Then *build out methods reflecting all these
 relationships.* What method can I call on a user to find other users who have
 backed his/her projects, etc?
 
-#### User
+#### User - DONE
 
 - .highest_pledge
   - returns the user who has made the highest pledge
