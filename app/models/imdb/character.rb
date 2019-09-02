@@ -1,18 +1,24 @@
 class Character
-    attr_accessor :name, :movies, :shows, :actor
+    attr_accessor :name, :actor
 
     @@all = []
 
     ###### Instance methods ######
-    def initialize(name, actor, movies=[], shows=[])
+    def initialize(name)
         @name = name
-        @movies = movies
-        @shows = shows
-        @actor = actor
 
         @@all << self
     end
 
+    #Return the shows the character appears in
+    def shows()
+        Show.all().select() { | show | show.characters().include?(self) }
+    end
+
+    #Return the movies the character appears in
+    def movies()
+        Movie.all().select() { | movie | movie.characters().include?(self) }
+    end
 
     ###### Class methods ######
 
@@ -23,7 +29,9 @@ class Character
 
     #Return the character appears in the most films and TV shows
     def self.most_appearances()
-        self.all().max_by() { | char | (char.movies.length() + char.shows.length()) }
+        self.all().max_by() { | char | char.shows().length() + char.movies.length() }
     end
+
+
 
 end

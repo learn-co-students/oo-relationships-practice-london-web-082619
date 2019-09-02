@@ -15,6 +15,12 @@ class Actor
         Character.all().select() { | char | char.actor == self }
     end
 
+    #Assign a character to the actor
+    def play_character(character)
+        character.actor = self
+    end
+
+
     ###### Class methods ######
 
     #Return an array of all actors
