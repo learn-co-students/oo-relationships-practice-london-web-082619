@@ -1,12 +1,11 @@
 class Character
 
-    attr_accessor :name, :actor, :movie
+    attr_accessor :name, :actor
     @@all = []
 
-    def initialize(name, actor, movie) #Character.new(name, actor, movie)
+    def initialize(name) #Character.new(name, actor, char_movie)
         @name = name
-        @actor = actor
-        @movie = movie
+        @actor = ""
         @@all << self 
     end
 
@@ -14,8 +13,9 @@ class Character
         @@all
     end
 
-    def self.most_appearances
     # should return which character of film/television appears in the most films or tv shows
+    def self.most_appearances
+
     end
 
 end
