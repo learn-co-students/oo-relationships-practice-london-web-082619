@@ -4,24 +4,67 @@ Bundler.require
 require_all 'app'
 
 #SEED DATA
-user1 = User.new("John")
-user2 = User.new("Steph")
-user3 = User.new("George")
-user4 = User.new("Lily")
 
-project1 = Project.new("AirPods", user1, 500)
-project2 = Project.new("Roller Sneakers", user2, 250)
-project3 = Project.new("Flying Car", user2, 900)
-project4 = Project.new("Monzo", user3, 10000)
+hermione = Character.new("Hermione Granger")
+ron = Character.new("Ron Weasly")
+neville = Character.new("Neville Longbottom")
+sirius = Character.new("Sirius Black")
+mcgonagall = Character.new("Professor McGonagall")
 
-pledge1 = Pledge.new(user1, project2, 50)
-pledge2 = Pledge.new(user3, project2, 300)
-pledge3 = Pledge.new(user2, project3, 10)
-pledge4 = Pledge.new(user2, project3, 100)
-pledge5 = Pledge.new(user3, project1, 250)
+violet = Character.new("Violet Crawley, Dowager Countess of Grantham")
 
-#returns the user who has made the highest pledge - DONE
-p User.highest_pledge
+emma = Actor.new("Emma Watson")
+rupert = Actor.new("Rupert Grint")
+matthew = Actor.new("Matthew Lewis")
+gary = Actor.new("Gary Oldman")
+maggie = Actor.new("Maggie Smith")
+
+hp1 = Movie.new("Harry Potter and the Philosopher's Stone")
+hp2 = Movie.new("Harry Potter and the Chamber of Secrets")
+hp3 = Movie.new("Harry Potter and the Prizoner of Azkaban")
+downtonmovie = Movie.new("Downton Abbey")
+
+downton = Show.new("Downton Abbey")
+ep1 = downton.create_episode("Pilot")
+ep2 = downton.create_episode("The Seond One")
+
+hp1.add_character(hermione)
+hp1.add_character(ron)
+hp1.add_character(neville)
+hp1.add_character(sirius)
+hp1.add_character(mcgonagall)
+
+hp2.add_character(hermione)
+hp2.add_character(ron)
+hp2.add_character(neville)
+
+hp3.add_character(hermione)
+
+hp1.cast_actor(emma, hermione)
+hp1.cast_actor(rupert, ron)
+hp1.cast_actor(matthew, neville)
+hp1.cast_actor(gary, sirius)
+hp1.cast_actor(maggie, mcgonagall)
+
+ep1.add_character(violet)
+ep2.add_character(violet)
+
+downton.cast_actor(maggie, violet)
+
+#EPISODE/SHOW DATA
+
+
+# jenn = Actor.new("Jennifer Aniston")
+# david = Actor.new("David Schwimmer")
+
+# friends = Show.new("Friends")
+
+# episode1 = friends.create_episode("The one where they learn to code")
+# episode2 = friends.create_episode("THe one where they fuck up their code")
+
+# rachel = friends.add_character("Rachel Green")
+# ross = friends.add_character("Ross Geller")
+
 
 binding.pry
 'save'

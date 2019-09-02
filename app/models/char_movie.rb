@@ -1,4 +1,4 @@
-class Char_Movie
+class Char_Movie #DONE
 
     attr_accessor :character, :movie
     @@all = []

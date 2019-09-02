@@ -1,4 +1,4 @@
-class Movie
+class Movie #DONE
 
     attr_accessor :title
     @@all = []
@@ -12,19 +12,6 @@ class Movie
         @@all
     end
 
-    #add a character to a movie given the character name
-    def add_character(name) #movie.add_character(name, actor)
-        if self.characters.find{ |character| character.name == name } #if the character is already in the movie...
-            return "This character has already been added to this movie!" #return a message notifying the user of this
-        elsif character = Character.all.find{ |character| character.name == name } #if character already exists...
-            Char_Movie.new(character, self) #create new char_movie with the found instance of character
-        else  #if character doesn't exist... 
-            character = Character.new(name) #create new character
-            Char_Movie.new(character, self) #create new char_movie instance with newly created character and movie(self)
-        end
-        character
-    end
-
     #view all char_movies for this movie
     def char_movie
         Char_Movie.all.select{ |char_movie| char_movie.movie == self }
@@ -35,6 +22,21 @@ class Movie
        self.char_movie.collect{ |char_movie| char_movie.character }
     end
 
+    #view all actors in this movie
+    def actors
+        self.characters.collect{ |character| character.actor }
+    end
+
+    #add a character to a movie given the character object
+    def add_character(character) #movie.add_character(character)
+        if char = self.char_movie.find{ |char_movie| char_movie.character == character }
+            return "This character is already in the movie!"
+        else
+            char = Char_Movie.new(character, self)
+        end
+        char
+    end
+
     #cast an actor, given actor object and character object
     def cast_actor(actor, character) #movie.cast_actor(actor, character)
         if character.actor == "" || nil
@@ -42,11 +44,6 @@ class Movie
         else
             return "This character has already been cast!"
         end
-    end
-
-    #view all actors in this movie
-    def actors
-        self.characters.collect{ |character| character.actor }
     end
 
     # should return the movie which has the most actors in it
