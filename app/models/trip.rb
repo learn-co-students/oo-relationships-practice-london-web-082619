@@ -1,15 +1,17 @@
 class Trip
-    attr_accessor :
-    @@ll = []
+    #trips belongs to listing
+    #belongs to guest
+    attr_reader :listing, :guest
+    @@all = []
     
-    def initialize()
-    
+    def initialize(guest, listing)
+        @guest = guest
+        @listing = listing
         @@all << self
     end
     
     def self.all
     @@all
     end
-    
-    
+
     end
