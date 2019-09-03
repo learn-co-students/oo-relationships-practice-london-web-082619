@@ -33,9 +33,4 @@ class Passenger
         @@all.select{ |passenger| passenger.total_distance > 100 }
     end 
 
-    def test
-
-    end
-
-
 end
