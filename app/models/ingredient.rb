@@ -1,11 +1,12 @@
 class Ingredient
 
-    attr_reader :name, :dessert, :calorie_count
+    attr_reader :dessert, :calorie_count
+    attr_accessor :name
 
     @@all = []
 
-    def initialize(new_name, calorie_count, dessert)
-        @name = new_name # instance variable
+    def initialize(name, calorie_count, dessert)
+        @name = name 
         @dessert = dessert
         @calorie_count = calorie_count
         @@all << self
@@ -15,25 +16,14 @@ class Ingredient
         @@all 
     end
 
-    def bakery
+    def bakery #flour.bakery #=> Bakery object 
         self.dessert.bakery
     end
 
-    # def name
-    #     return @name
-    # end
-
-    # def dessert
-    #     return @dessert
-    # end
-
-    # def calorie_count
-    #     return @calorie_count
-    # end
-
-    # def is_yummy?
-    #     return yummy # won't work because local variable
-    # end
+    def self.find_all_by_name(ingredient_s)
+    #should take a string argument return an array of all ingredients that include that string in their name
+        @@all.select{ |ingredient| ingredient.name.include? (ingredient_s)}
+    end
 
 end
 
